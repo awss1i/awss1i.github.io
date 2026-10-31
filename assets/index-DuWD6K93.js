@@ -48,6 +48,7 @@
       </div>`})}
   </div></section>`}function ie(){return`<section class="beat projects" id="projects">${e.builds.map((t,r)=>{let i=e.extras[t.name]??{},o=t.features.map((e,t)=>`<li style="--i:${t}">${n(e)}</li>`).join(``),s=t.install?`<button type="button" class="install" data-copy="${n(t.install)}"><code>${n(t.install)}</code><span>Copy</span></button>`:``,c=[k(t.url,`Repo <i aria-hidden="true">↗</i>`,`btn`),t.site?k(t.site,`Site <i aria-hidden="true">↗</i>`,`btn`):``].join(``),l=i.terminal?`<div class="term" aria-label="A real run of ${n(t.name)}">${i.terminal.map((e,t)=>`<span class="tl${/FAILED/.test(e)?` bad`:``}${/^\s/.test(e)?` note`:``}" style="--i:${t}">${n(e)||` `}</span>`).join(``)}</div>`:`<div class="depth solo"><span class="lang">${n(t.language)}</span><b class="mid">★ ${n(t.stars)}</b></div>${w(`キラッ`,`--r:-8deg;left:8%;top:10%`)}`;return`<section class="beat project" data-folio="${n(t.name)}" style="--len:170svh"><div class="stage" data-stage>
       ${C({w:[2,4,46,40,b(0,1.5)],n:[4,2,92,39],cls:`proj`,at:`data-at="0"`,body:`
+        <span class="cursor" aria-hidden="true">_</span>
         <div class="depth"><span class="no">Project ${a(r+1)}</span><h3 class="pname" style="--n:${Math.max(5,t.name.length)}">${n(t.name)}</h3>
         <span class="meta">${n(t.language)} · ★ ${n(t.stars)}</span></div>
         <p class="caption">${n(t.tagline)}</p>
