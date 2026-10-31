@@ -13,7 +13,7 @@
       <p class="caption">${n(t.line)}</p>
       <nav class="toc" aria-label="Sections">${N.map(([e,t],n)=>`<a href="#${e}" data-jump><b>${a(n+1)}</b>${t}</a>`).join(``)}</nav>
       <span class="cue">SCROLL <i aria-hidden="true"></i></span>`})}
-  </div></section>`}var P=36;function F(){let t=(t,r)=>[...e.repos].sort(t).slice(0,P).map(e=>`<em>${n(e.name)}${r(e)}</em>`).join(`<i>✦</i>`);return`<div class="bands" aria-hidden="true">${[t((e,t)=>t.contributions.length-e.contributions.length||t.stars-e.stars,e=>` <b>×${e.contributions.length}</b>`),t((e,t)=>t.stars-e.stars,e=>` <b>★ ${i(e.stars)}</b>`),t((e,t)=>t.contributions[0].seq-e.contributions[0].seq,()=>``)].map(e=>`<div class="band"><div class="track">${e}<i>✦</i>${e}<i>✦</i></div></div>`).join(``)}</div>`}function ne(){let t=e.stats;return`<section class="beat tally" id="stats" data-folio="Stats" style="--len:230svh"><div class="stage" data-stage>
+  </div></section>`}var P=36;function F(){let t=(t,r)=>[...e.repos].sort(t).slice(0,P).map(e=>`<em>${n(e.name.split(`/`)[1])}${r(e)}</em>`).join(`<i>✦</i>`);return`<div class="bands" aria-hidden="true">${[t((e,t)=>t.contributions.length-e.contributions.length||t.stars-e.stars,e=>` <b>×${e.contributions.length}</b>`),t((e,t)=>t.stars-e.stars,e=>` <b>★ ${i(e.stars)}</b>`),t((e,t)=>t.contributions[0].seq-e.contributions[0].seq,()=>``)].map(e=>`<div class="band"><div class="track">${e}<i>✦</i>${e}<i>✦</i></div></div>`).join(``)}</div>`}function ne(){let t=e.stats;return`<section class="beat tally" id="stats" data-folio="Stats" style="--len:230svh"><div class="stage" data-stage>
     ${C({w:[2,5,47,60,b(0,0,0,-1.5)],n:[4,4,92,33],cls:`ink num-a`,at:`data-at="0"`,body:`
       ${F()}
       <div class="depth"><b class="big" style="--n:${String(t.contributions).length}" data-count="${t.contributions}">${t.contributions}</b><span class="unit">contributions</span></div>
@@ -25,16 +25,16 @@
     ${C({w:[2,67,96,28,b(0,1.2)],n:[4,62,92,34],cls:`split`,at:`data-at="0.46"`,body:`
       <div class="half disc"><b data-count="${t.discovered}">${t.discovered}</b><span class="unit">${O.discovered.name}</span><p>${O.discovered.line}</p></div>
       <div class="half rep"><b data-count="${t.reported}">${t.reported}</b><span class="unit">${O.reported.name}</span><p>${O.reported.line}</p></div>`})}
-  </div></section>`}function re(){let t=e.stats,n=(e,t,n)=>`<button type="button" role="tab" data-kind="${e}" aria-selected="${e===`all`}">${t}<b>${n}</b></button>`,r=(e,t)=>`<button type="button" data-sort="${e}" aria-pressed="${e===`stars`}">${t}</button>`;return`<section class="beat contributions" id="contributions" data-folio="Contributions" style="--len:190svh"><div class="stage" data-stage>
+  </div></section>`}function re(){let t=e.stats,n=(e,t,n)=>`<button type="button" role="tab" data-kind="${e}" aria-selected="${e===`all`}">${t}<b>${n}</b></button>`,r=(e,t)=>`<button type="button" data-sort="${e}" aria-pressed="${e===`stars`}">${t}</button>`;return`<section class="beat contributions" id="contributions" data-folio="Contributions" style="--len:145svh"><div class="stage" data-stage>
     ${C({w:[2,4,47,21,b(0,1.2)],n:[4,2.5,92,13],cls:`sum-panel`,at:`data-at="0"`,body:`
       <canvas class="halftone" aria-hidden="true"></canvas>
       <p class="sum"><b>${t.contributions}</b> contributions to <b>${t.repos}</b> repositories, across <b>${t.stacks}</b> languages and technologies.</p>`})}
-    ${C({w:[51,4,47,21,b(-1.2,0)],n:[4,16.5,92,18],cls:`hatch defs-panel`,at:`data-at="0.2"`,body:`
+    ${C({w:[51,4,47,21,b(-1.2,0)],n:[4,16.5,92,18],cls:`hatch defs-panel`,at:`data-at="0"`,body:`
       <dl class="defs">
         <div><dt><span class="kind kind-discovered">${O.discovered.name}</span></dt><dd>${O.discovered.line}</dd></div>
         <div><dt><span class="kind kind-reported">${O.reported.name}</span></dt><dd>${O.reported.line}</dd></div>
       </dl>`})}
-    ${C({w:[2,28,96,68],n:[4,35.5,92,61.5],cls:`list-panel`,at:`data-at="0.42" data-hold`,body:`
+    ${C({w:[2,28,96,68],n:[4,35.5,92,61.5],cls:`list-panel`,at:`data-at="0" data-hold`,body:`
       <div class="controls">
         <div class="tabs" role="tablist" aria-label="Kind">${n(`all`,`All`,t.contributions)}${n(`discovered`,O.discovered.name,t.discovered)}${n(`reported`,O.reported.name,t.reported)}</div>
         <label class="bubble"><span class="visually-hidden">Search contributions</span>
@@ -48,7 +48,6 @@
       </div>`})}
   </div></section>`}function ie(){return`<section class="beat projects" id="projects">${e.builds.map((t,r)=>{let i=e.extras[t.name]??{},o=t.features.map((e,t)=>`<li style="--i:${t}">${n(e)}</li>`).join(``),s=t.install?`<button type="button" class="install" data-copy="${n(t.install)}"><code>${n(t.install)}</code><span>Copy</span></button>`:``,c=[k(t.url,`Repo <i aria-hidden="true">↗</i>`,`btn`),t.site?k(t.site,`Site <i aria-hidden="true">↗</i>`,`btn`):``].join(``),l=i.terminal?`<div class="term" aria-label="A real run of ${n(t.name)}">${i.terminal.map((e,t)=>`<span class="tl${/FAILED/.test(e)?` bad`:``}${/^\s/.test(e)?` note`:``}" style="--i:${t}">${n(e)||` `}</span>`).join(``)}</div>`:`<div class="depth solo"><span class="lang">${n(t.language)}</span><b class="mid">★ ${n(t.stars)}</b></div>${w(`キラッ`,`--r:-8deg;left:8%;top:10%`)}`;return`<section class="beat project" data-folio="${n(t.name)}" style="--len:170svh"><div class="stage" data-stage>
       ${C({w:[2,4,46,40,b(0,1.5)],n:[4,2,92,39],cls:`proj`,at:`data-at="0"`,body:`
-        <span class="prompt" aria-hidden="true">$<i>_</i></span>
         <div class="depth"><span class="no">Project ${a(r+1)}</span><h3 class="pname" style="--n:${Math.max(5,t.name.length)}">${n(t.name)}</h3>
         <span class="meta">${n(t.language)} · ★ ${n(t.stars)}</span></div>
         <p class="caption">${n(t.tagline)}</p>
